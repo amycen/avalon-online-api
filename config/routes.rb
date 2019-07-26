@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   resources :conversations, only: [:index, :show, :create]
   resources :messages, only: [:create]
 
+
   mount ActionCable.server => '/cable'
 
   post "/signup", to: "users#create"
-
   post "/login", to: "auth#login"
   get "/auto_login", to: "auth#auto_login"
 end
+
