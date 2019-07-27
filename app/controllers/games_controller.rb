@@ -15,11 +15,12 @@ class GamesController < ApplicationController
     end
 
     def create
-        game = Game.new({game_params})
+        game = Game.new(game_params)
         if game.save
             serialized_data = ActiveModelSerializers::Adapter::Json.new(
                 GameSerializer.new(game)
             ).serializable_hash
+            puts serialized_data
             ActionCable.server.broadcast 'games_channel', serialized_data
             head :ok
         end
@@ -27,7 +28,7 @@ class GamesController < ApplicationController
 
     private
 
-    def conversation_params
+    def game_params
         params.require(:game).permit(:name, :num_of_players)
     end
 end
