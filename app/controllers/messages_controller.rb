@@ -1,13 +1,13 @@
 class MessagesController < ApplicationController
 
     def create
-        conversation = Conversation.find(message_params[:conversation_id])
+        game = Game.find(message_params[:game_id])
         message = Message.new(message_params.merge!(user_id: request.headers["Authorization"].to_i))
-        if conversation && message.save
+        if game && message.save
             serialized_data = ActiveModelSerializers::Adapter::Json.new(
                 MessageSerializer.new(message)
             ).serializable_hash
-            MessagesChannel.broadcast_to conversation, serialized_data
+            MessagesChannel.broadcast_to game, serialized_data
             head :ok
         #else
         #    MessagesChannel.broadcast_to conversation, "Unable to send message"
@@ -17,6 +17,6 @@ class MessagesController < ApplicationController
     private
 
     def message_params
-        params.require(:message).permit(:text, :conversation_id)
+        params.require(:message).permit(:text, :game_id)
     end
 end

@@ -1,4 +1,4 @@
 class Message < ApplicationRecord
-  belongs_to :conversation
+  belongs_to :game
   belongs_to :user
 end
