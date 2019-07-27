@@ -5,8 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Message.delete_all
 Game.delete_all
 User.delete_all
 
-Game.create([{name: "GAME 1", num_of_players: 5}, {name: "GAME 2", num_of_players: 10}, {name: "GAME 3", num_of_players: 7} ])
+
+Game.create([{name: "GAME 1", num_of_players: 5, status: "PENDING"}, {name: "GAME 2", num_of_players: 10, status: "IN PROGRESS"}, {name: "GAME 3", num_of_players: 7, status: "FINISHED"} ])
 User.create([{username: "AA", password: "123"},{username: "BB", password: "123"},{username: "CC", password: "123"},{username: "DD", password: "123"},{username: "EE", password: "123"}])
