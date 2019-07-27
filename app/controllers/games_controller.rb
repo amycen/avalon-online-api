@@ -20,8 +20,7 @@ class GamesController < ApplicationController
             serialized_data = ActiveModelSerializers::Adapter::Json.new(
                 GameSerializer.new(game)
             ).serializable_hash
-            puts serialized_data
-            ActionCable.server.broadcast 'games_channel', serialized_data
+            ActionCable.server.broadcast 'games_channel', serialized_data[:game]
             head :ok
         end
     end
