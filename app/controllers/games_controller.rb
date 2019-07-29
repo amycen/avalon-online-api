@@ -16,7 +16,6 @@ class GamesController < ApplicationController
 
     def create
         game = Game.new(game_params)
-        byebug
         if game.save
             serialized_data = ActiveModelSerializers::Adapter::Json.new(
                 GameSerializer.new(game)
