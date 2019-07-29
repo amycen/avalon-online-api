@@ -6,9 +6,9 @@ class MessagesController < ApplicationController
         if game && message.save
             serialized_data = ActiveModelSerializers::Adapter::Json.new(
                 MessageSerializer.new(message)
-            ).serializable_hash
-            MessagesChannel.broadcast_to game, serialized_data
-            head :ok
+              ).serializable_hash
+              MessagesChannel.broadcast_to game, serialized_data
+              head :ok
         #else
         #    MessagesChannel.broadcast_to conversation, "Unable to send message"
         end
