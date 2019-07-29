@@ -11,7 +11,8 @@ Game.delete_all
 
 
 Game.create([{name: "GAME 1", num_of_players: 5, status: "WAITING"}, {name: "GAME 2", num_of_players: 10, status: "IN_PROGRESS"}, {name: "GAME 3", num_of_players: 7, status: "FINISHED"} ])
-#User.create([{username: "AA", password: "123"},{username: "BB", password: "123"},{username: "CC", password: "123"},{username: "DD", password: "123"},{username: "EE", password: "123"}])
+User.create([{username: "AA", password: "123"},{username: "BB", password: "123"},{username: "CC", password: "123"},{username: "DD", password: "123"},{username: "EE", password: "123"}])
+
 Role.create([
     {name: "Merlin", faction: "good", abbreviation: "MER", img_url: "https://gamepedia.cursecdn.com/eternitywiki/e/e0/Pallegina-portrait.jpg?version=d7ecf31cae0c64e683894dda431260f4"}, {name: "Percival", faction: "good", abbreviation: "PER", img_url: "https://gamepedia.cursecdn.com/eternitywiki/4/41/Human_male_PoE1_portrait_07_lg.png?version=a3cac8a8fc8a7a52876d420d047ff03b"}, {name: "Loyal Servant of Author", faction: "good", abbreviation: "LS1", img_url: "https://gamepedia.cursecdn.com/eternitywiki/9/90/Aumaua_female_PoE1_portrait_1_lg.png?version=cdd740cd7a3c5d41553662756c5139ad"},
 
