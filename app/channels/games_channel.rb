@@ -5,5 +5,6 @@ class GamesChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
+    raise "wat"
   end
 end

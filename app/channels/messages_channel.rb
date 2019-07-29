@@ -6,5 +6,6 @@ class MessagesChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
+    raise "wat"
   end
 end
