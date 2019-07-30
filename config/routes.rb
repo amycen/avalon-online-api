@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
+
+  get '/open_games', to: "games#open_games"
+  get '/update_game_status/:game_id', to: "games#update_game_status"
   post "/signup", to: "users#create"
   post "/login", to: "auth#login"
   get "/auto_login", to: "auth#auto_login"

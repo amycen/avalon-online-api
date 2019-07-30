@@ -14,6 +14,15 @@ class GamesController < ApplicationController
         end
     end
 
+    def update_game_status
+        game = Game.find(params[:id])
+        if game.update({status: "IN_PROGRESS"})
+            render json: game
+        else
+            render json: {errors: "Cannot Update"}
+        end
+    end
+
     def create
         game = Game.new(game_params)
         if game.save
@@ -23,6 +32,11 @@ class GamesController < ApplicationController
               ActionCable.server.broadcast 'games_channel', serialized_data
               head :ok
         end
+    end
+
+    def open_games
+        open_games = Game.where(status: "WAITING")
+        render json: open_games
     end
 
     private
