@@ -25,7 +25,6 @@ class RolesController < ApplicationController
         if (remaining_players >= 8)
             roles << Role.find_by({abbreviation: "MM3"})
         end
-
         render json: roles.shuffle
     end
 end

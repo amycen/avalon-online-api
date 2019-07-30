@@ -10,12 +10,6 @@ class GameRolesController < ApplicationController
           GameRolesChannel.broadcast_to game, serialized_data
           head :ok
         end
-      end
-
-    def get_players
-        game_roles = GameRole.where(game_id: params[:game_id].to_i)
-        render json: game_roles
-        
     end
       
     private
