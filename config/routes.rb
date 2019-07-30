@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :games, only: [:index, :show, :create]
   resources :messages, only: [:create]
+  resources :game_roles, only: [:create]
 
 
   mount ActionCable.server => '/cable'
@@ -11,5 +12,6 @@ Rails.application.routes.draw do
   post "/login", to: "auth#login"
   get "/auto_login", to: "auth#auto_login"
   get '/get_roles/:playerNum', to: 'roles#get_roles'
+  get '/game_roles/get_players/:game_id', to: 'game_roles#get_players'
 end
 
